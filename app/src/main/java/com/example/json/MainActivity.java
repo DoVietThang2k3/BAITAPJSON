@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    ListView listView;
+    GridView girdView;
     ArrayList<Custom> list;
     CustomAdapter adapter;
 
@@ -28,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = findViewById(R.id.listView);
+        girdView = findViewById(R.id.girdView);
         list = new ArrayList<>();
         adapter = new CustomAdapter(this,R.layout.list_item,list);
-        listView.setAdapter(adapter);
+        girdView.setAdapter(adapter);
         new ReadJSON().execute("https://dummyjson.com/products");
     }
     private class ReadJSON extends AsyncTask<String,Void,String>{
